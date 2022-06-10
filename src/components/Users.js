@@ -13,6 +13,12 @@ class Users extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error('No users provided!');
+    }
+  }
+
   // react merges updated state with the old one. it does not overwrite the state
   toggleUsersHandler() {
     this.setState((curState) => {
